@@ -7,7 +7,7 @@ public static class PerlinNoise {
         float maxNoiseHeight = float.MinValue;
         float minNoiseHeight = float.MaxValue;
 
-        System.Random prng = new System.Random(seed);
+        System.Random prng      = new System.Random(seed);
         Vector2[] octaveOffsets = new Vector2[octaves];
 
         float halfWidth = mapWidth / 2f ;
@@ -27,9 +27,9 @@ public static class PerlinNoise {
         for(int y = 0; y < mapHeight; y++){
             for(int x = 0; x < mapWidth; x++){
 
-                float amplitude = 1 ;
-                float frequency = 1 ;
-                float noiseHeight = 0 ;
+                float amplitude     = 1 ;
+                float frequency     = 1 ;
+                float noiseHeight   = 0 ;
 
 
                 for(int i = 0; i< octaves; i++)
