@@ -14,6 +14,8 @@ public class MapGenerator : MonoBehaviour {
     public float persistance;
     public float lacunarity;
 
+    public float meshHeightMultiplier;
+
     public int seed;
     public Vector2 offset;
 
@@ -27,7 +29,7 @@ public class MapGenerator : MonoBehaviour {
 
         for(int y = 0; y < mapHeight; y++){
             for (int x = 0; x < mapWidth; x++){
-                float currentHeight = noiseMap[y, x];
+                float currentHeight = noiseMap[x, y];
                 for (int i = 0; i < regions.Length; i++){
                     if(currentHeight <= regions[i].height){
                         colourMap[y * mapWidth + x] = regions[i].colour;
@@ -42,7 +44,7 @@ public class MapGenerator : MonoBehaviour {
         } else if (drawMode == DrawMode.ColourMap) {
             display.DrawTexture(TextureGenerator.TextureFromColourMap(colourMap, mapWidth, mapHeight));
         } else if (drawMode == DrawMode.Mesh){
-            display.DrawMesh(MeshGenerator.GenerateTerrainMesh(noiseMap), TextureGenerator.TextureFromColourMap(colourMap, mapWidth, mapHeight));
+            display.DrawMesh(MeshGenerator.GenerateTerrainMesh(noiseMap, meshHeightMultiplier), TextureGenerator.TextureFromColourMap(colourMap, mapWidth, mapHeight));
         }
             
     }

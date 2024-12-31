@@ -53,7 +53,7 @@ public static class PerlinNoise {
                 }
 
 
-                noiseMap[y, x] = noiseHeight;
+                noiseMap[x, y] = noiseHeight;
             }
         }
 
