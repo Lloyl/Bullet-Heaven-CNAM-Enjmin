@@ -1,17 +1,22 @@
 using UnityEngine;
 // tranform a noiseMap into a texture to apply on a plane in a scene
-public class MapDisplay : MonoBehaviour {
-    
-    public Renderer textureRender;
-    public MeshFilter meshfilter;
-    public MeshRenderer meshRenderer; 
+public class MapDisplay : MonoBehaviour
+{
 
-    public void DrawTexture(Texture2D texture) { 
-        textureRender.sharedMaterial.mainTexture = texture; // apply the perlin noise to the texture object applied to the plane
-        textureRender.transform.localScale = new Vector3 (texture.width, 1 , texture.height);
+    public Renderer textureRender;
+    public MeshFilter meshFilter;
+    public MeshRenderer meshRenderer;
+
+    public void DrawTexture(Texture2D texture)
+    {
+        textureRender.sharedMaterial.mainTexture = texture;
+        textureRender.transform.localScale = new Vector3(texture.width, 1, texture.height);
     }
-    public void DrawMesh(MeshData meshdata, Texture2D texture){
-        meshfilter.sharedMesh = meshdata.CreateMesh(); // mesh must be shared to be able to be generated outside of game mode
+
+    public void DrawMesh(MeshData meshData, Texture2D texture)
+    {
+        meshFilter.sharedMesh = meshData.CreateMesh();
         meshRenderer.sharedMaterial.mainTexture = texture;
     }
+
 }
