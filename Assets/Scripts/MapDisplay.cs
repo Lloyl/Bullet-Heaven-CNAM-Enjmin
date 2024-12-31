@@ -1,5 +1,5 @@
 using UnityEngine;
-// tranform a noiseMap into a texture to apply on a plane in a scene
+
 public class MapDisplay : MonoBehaviour
 {
 

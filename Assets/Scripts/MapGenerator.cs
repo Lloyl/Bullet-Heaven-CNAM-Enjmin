@@ -14,10 +14,11 @@ public class MapGenerator : MonoBehaviour
     [Range(0, 1)]
     public float persistance;
     public float lacunarity;
-    public float meshHeightMultiplier;
 
     public int seed;
     public Vector2 offset;
+
+    public float meshHeightMultiplier;
 
     public bool autoUpdate;
 
